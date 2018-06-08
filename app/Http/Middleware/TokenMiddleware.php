@@ -27,12 +27,13 @@ class TokenMiddleware
         //extract html to get the data
         $dom        = new \DOMDocument();
         $dom->loadHTML($html);
+
         $scripts    = $dom->getElementsByTagName('script');
 
         //get token for future request
         $script     = $scripts[0];
         $nodeValue  = $script->nodeValue;
-        preg_match('/\window\.([a-zA-Z]{2})\s*=(.*?);/', $nodeValue, $matches);
+        preg_match('/\window\.([a-zA-Z0-9]{2})\s*=(.*?);/', $nodeValue, $matches);
         preg_match('/"([^"]+)"/', $matches[0], $token);
         $token      = $token[1];
         $request->merge(compact('token'));
