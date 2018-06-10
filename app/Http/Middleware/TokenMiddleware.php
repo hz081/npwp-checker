@@ -33,10 +33,11 @@ class TokenMiddleware
         //get token for future request
         $script     = $scripts[0];
         $nodeValue  = $script->nodeValue;
-        preg_match('/\window\.([a-zA-Z0-9]{2})\s*=(.*?);/', $nodeValue, $matches);
+        preg_match('/\window\.([a-zA-Z][a-zA-Z0-9])\s*={(.*?)};/', $nodeValue, $matches);
         preg_match('/"([^"]+)"/', $matches[0], $token);
         $token      = $token[1];
         $request->merge(compact('token'));
+        $request->merge(compact('matches'));
 
         return $next($request);
     }

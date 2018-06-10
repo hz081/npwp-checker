@@ -22,12 +22,12 @@ class NpwpController extends Controller
             'Content-Type: application/json',
             'Cookie: TSPD_101='.$request->token
         ));
-        $result     = curl_exec($ch);
-        $result     = json_decode($result);
+        $result         = curl_exec($ch);
+        $objectResult   = json_decode($result);
 
-        if($result->status == 1)
-            return response()->json(json_encode($result), 200);
+        if($objectResult->status == 1)
+            return response()->json($result, 200);
         else
-            return response()->json(json_encode($result), 400);
+            return response()->json($result, 400);
     }
 }
