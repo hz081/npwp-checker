@@ -37,7 +37,6 @@ class TokenMiddleware
         preg_match('/"([^"]+)"/', $matches[0], $token);
         $token      = $token[1];
         $request->merge(compact('token'));
-        $request->merge(compact('matches'));
 
         return $next($request);
     }
