@@ -26,8 +26,8 @@ class NpwpController extends Controller
         $objectResult   = json_decode($result);
 
         if($objectResult->status == 1)
-            return response()->json($result, 200);
+            return response()->json($objectResult, 200);
         else
-            return response()->json($result, 400);
+            return response()->json($objectResult, 400);
     }
 }
