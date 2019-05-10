@@ -35,10 +35,3 @@ Then you could access and try with :
 ```
 http://localhost:8000/api/npwp/{NPWP_Number}
 ```
-
-### Author
-- [Hantze Sudarma](https://www.linkedin.com/in/hantze-sudarma-325312100/)
-
-### Further Development
-- Looking for KTP and KK API Checker
-If you could help me, please contact me with: hantze.sudarma@gmail.com
